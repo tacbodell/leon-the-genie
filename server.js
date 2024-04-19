@@ -43,15 +43,14 @@ const server = http.createServer((req, res) => {
         res.end(JSON.stringify(objToJson));
       }
       else {
-        let randomNumber = Math.floor(Math.random() * 8);
+        let randomNumber = Math.floor(Math.random() * 7);
         const audioResponses = {
           'Yuh!': '../audio/yuh.mp3',
           "Let's Go!": '../audio/letsgo.mp3',
           'First tryyy!': '../audio/first-try.mp3',
           "That's wild.": '../audio/thatswild.mp3',
           'What?!': '../audio/what.mp3',
-          //'Second try...': '../audio/yuh.ogg',
-          //'You got got...': '../audio/yuh.ogg',
+          'You got got... 🦆': '../audio/quack.mp3',
           "Who's gonna carry the boats and logs??": '../audio/boatslogs.mp3',
         }
         
