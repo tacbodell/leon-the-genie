@@ -6,7 +6,7 @@ const path = require('path');
 const figlet = require('figlet');
 
 const server = http.createServer((req, res) => {
-  // helper function to handle file system. It's call everytime we need to 'serve' a file
+  // f to use fs module. Call it everytime you need to 'serve' a file
   // @params string of file name and string of content type
   const readWrite = (file, contentType) => {
     fs.readFile(file, function (err, data) {
@@ -30,7 +30,6 @@ const server = http.createServer((req, res) => {
   }
   else if (page == '/api') {
     if ('student' in params) {
-
       if (params['student'].toLowerCase().includes('papa john')) {
         res.writeHead(200, { 'Content-Type': 'application/json' });
         const objToJson = {
@@ -38,10 +37,18 @@ const server = http.createServer((req, res) => {
           audioResponse: "../audio/leon_get_the_beep_out.mp3"
         }
         res.end(JSON.stringify(objToJson));
-      }
-      else {
-        let randomNumber = Math.floor(Math.random() * 7);
+      } else if ((params['student'] == 'leon')) {
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        const objToJson = {
+          name: params['student'].toUpperCase(),
+          status: "Boss Man",
+          currentOccupation: "Baller"
+        }
+        res.end(JSON.stringify(objToJson));
+      } else {
+        let randomNumber = Math.floor(Math.random() * 8);
         const audioResponses = {
+          
           'Yuh!': '../audio/yuh.mp3',
           "Let's Go!": '../audio/letsgo.mp3',
           'First tryyy!': '../audio/first-try.mp3',
@@ -49,6 +56,7 @@ const server = http.createServer((req, res) => {
           'What?!': '../audio/what.mp3',
           'You got got... 🦆': '../audio/quack.mp3',
           "Who's gonna carry the boats and logs??": '../audio/boatslogs.mp3',
+          'Eeyyyy!!': '../audio/smalleyy.mp3',
         }
 
 
@@ -61,26 +69,6 @@ const server = http.createServer((req, res) => {
         res.end(JSON.stringify(objToJson));
       }
     }
-    // if('student' in params){
-    //   if(params['student']== 'leon'){
-    //     res.writeHead(200, {'Content-Type': 'application/json'});
-    //     const objToJson = {
-    //       name: "leon",
-    //       status: "Boss Man",
-    //       currentOccupation: "Baller"
-    //     }
-    //     res.end(JSON.stringify(objToJson));
-    //   }//student = leon
-    //   else if(params['student'] != 'leon'){
-    //     res.writeHead(200, {'Content-Type': 'application/json'});
-    //     const objToJson = {
-    //       name: "unknown",
-    //       status: "unknown",
-    //       currentOccupation: "unknown"
-    //     }
-    //     res.end(JSON.stringify(objToJson));
-    //   }//student != leon
-    // }//student if
   }
   else if (page == '/css/style.css') {
     readWrite('css/style.css', '')
@@ -97,7 +85,13 @@ const server = http.createServer((req, res) => {
 
   }
   else {
-    figlet('404!!', function (err, data) {
+    figlet(`PAPA LEON SAYS: GO BACK!`, {
+              font: "Standard",
+              horizontalLayout: "fitted",
+              verticalLayout: "default",
+              width: 60,
+              whitespaceBreak: true,
+            }, function (err, data) {
       if (err) {
         console.log('Something went wrong...');
         console.dir(err);
