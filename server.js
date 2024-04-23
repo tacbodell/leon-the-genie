@@ -7,7 +7,6 @@ const figlet = require('figlet');
 
 const server = http.createServer((req, res) => {
   // f to use fs module. Call it everytime you need to 'serve' a file
-  // @params string of file name and string of content type
   const readWrite = (file, contentType) => {
     fs.readFile(file, function (err, data) {
       res.writeHead(200, { 'Content-Type': contentType });

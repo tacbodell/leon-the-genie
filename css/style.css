@@ -9,9 +9,21 @@
 	max-height: 500px;
 	width: 80%;
 	display: block;
-	margin: 0 auto;
+	margin: 1rem auto;
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+	padding-inline-start: 0;
 }
 
 li {
 	list-style: none;
+	padding: 0.5rem;
+}
+footer {
+	border-top: 5px solid black;
+	margin-top: 2rem;
 }
