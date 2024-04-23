@@ -42,6 +42,14 @@ const server = http.createServer((req, res) => {
         }
         res.end(JSON.stringify(objToJson));
       }
+      if(params['student'].trim()===""){
+        res.writeHead(200, {'Content-Type': 'application/json'});
+        const objToJson = {
+          response: "Cant hear ya! What!?",
+          audioResponse: "../audio/what.mp3"
+        }
+        res.end(JSON.stringify(objToJson));
+      }
       else {
         let randomNumber = Math.floor(Math.random() * 7);
         const audioResponses = {
