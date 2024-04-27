@@ -1,17 +1,53 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #0d1117;
+  color: white;
+}
+
 .wrapper {
-	padding: 24px;
-	max-width: 2000px;
-	margin: 0 auto;
-	text-align: center;
+  width: 80%;
+  margin: 10px auto;
+}
+
+.wrapper h1 {
+  margin-bottom: 10px;
+}
+
+.wrapper input {
+  width: 80%;
+  padding: 10px 15px 10px 15px;
+  outline: none;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.wrapper button {
+  padding: 10px 15px 10px 15px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .leon {
-	max-height: 500px;
-	width: 80%;
-	display: block;
-	margin: 0 auto;
+  width: 100%;
 }
 
-li {
-	list-style: none;
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+ul li {
+  margin: 10px;
+  padding: 10px;
+}
+
+a {
+  color: white;
 }
